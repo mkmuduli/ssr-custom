@@ -8,9 +8,9 @@ const app = express();
 
 app.use(express.static("public"))
 
-app.get("/",(req, res)=>{
+app.get("*",(req, res)=>{
     
-   return res.send(renderer())
+   return res.send(renderer(req))
 })
 
 app.listen(PORT,()=>{
