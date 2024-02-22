@@ -1,12 +1,17 @@
 import React from "react";
-import { Route } from 'react-router-dom' 
-import Home from "./component/Home";
+import * as Home from "./pages/HomePage";
+import * as User from "./pages/UserPage";
 
-export default  () =>{
-    return (
-        <div>
-            <Route exact path="/" component={Home} />
-            <Route  path="/hi" component={()=> "Hello"} />
-        </div>
-    )
-}
+export default [
+  {
+    path: "/",
+    component: Home.default,
+    exact: true,
+    fetchInitialData: Home.fetchInitialData
+  },
+  {
+    path: "/users",
+    component: User.default,
+    fetchInitialData: User.fetchInitialData
+  },
+];
